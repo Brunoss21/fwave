@@ -30,7 +30,7 @@ jobs:
      
       - name: Build with Maven
         run: mvn clean install
-        working-directory: './fatecwave/target/'  # Ajuste este caminho conforme a estrutura do seu projeto
+        working-directory: './fatecwave/'  # Ajuste este caminho conforme a estrutura do seu projeto
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -66,5 +66,5 @@ jobs:
         with:
           app-name: 'fwave'
           slot-name: 'Production'
-          package: './fatecwave/target/'
+          package: './fatecwave/target/fatecwave-0.0.1-SNAPSHOT.war'
 
