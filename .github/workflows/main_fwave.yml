@@ -26,17 +26,17 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B clean install
-        working-directory: './fatecwave'
+        working-directory: './fatecwave/target/fatecwave-0.0.1-SNAPSHOT.war'
      
       - name: Build with Maven
         run: mvn clean install
-        working-directory: './fatecwave'  # Ajuste este caminho conforme a estrutura do seu projeto
+        working-directory: './fatecwave/target/fatecwave-0.0.1-SNAPSHOT.war'  # Ajuste este caminho conforme a estrutura do seu projeto
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: './fatecwave/target/*.war'  # Ajuste o caminho conforme necessário
+          path: './fatecwave/target/fatecwave-0.0.1-SNAPSHOT.war'  # Ajuste o caminho conforme necessário
 
   deploy:
     runs-on: ubuntu-latest
