@@ -60,6 +60,9 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CB052F3DD1994845A5D5EF936BCF8FBA }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_907DE78EA26041C0A6E81B593B230EFA }}
 
+      - name: Debug
+        run: ls -l ./fatecwave/target/
+      
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
