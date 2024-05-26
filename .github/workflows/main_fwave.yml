@@ -66,4 +66,5 @@ jobs:
         with:
           app-name: 'fwave'
           slot-name: 'Production'
-          package: './fatecwave/target/*.war'  # Ajuste o caminho conforme necessário
+          package: './fatecwave/target/fatecwave-0.0.1-SNAPSHOT.war'
+
