@@ -1,6 +1,5 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy WAR app to Azure Web App - fwave
 
 on:
@@ -20,17 +19,17 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'  # ou 'adopt' dependendo da sua preferência
-          java-version: '17'    # ou '17' se preferir uma versão mais recente
+          java-version: '11'    # ou '17' se preferir uma versão mais recente
 
       - name: Build with Maven
         run: mvn clean install
-        working-directory: ./fwave/fatecwave/
-        
+        working-directory: './fatecwave'  # Ajuste este caminho conforme a estrutura do seu projeto
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.war'
+          path: './fatecwave/target/*.war'  # Ajuste o caminho conforme necessário
 
   deploy:
     runs-on: ubuntu-latest
@@ -60,4 +59,4 @@ jobs:
         with:
           app-name: 'fwave'
           slot-name: 'Production'
-          package: '*.war'
+          package: './fatecwave/target/*.war'  # Ajuste o caminho conforme necessário
